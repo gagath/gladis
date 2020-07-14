@@ -1,6 +1,6 @@
 [package]
 name = "gladis"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Romain Porte <microjoe@microjoe.org>"]
 edition = "2018"
 license = "Apache-2.0"
@@ -8,7 +8,7 @@ description = "Easily import Glade-generated UI files into Rust code."
 readme = "README.md"
 keywords = ["gui", "gtk", "gtk-rs", "gnome", "glade"]
 categories = ["gui"]
-repository = "https://github.com/MicroJoe/gladis_proc_macro"
+repository = "https://github.com/MicroJoe/gladis"
 
 [badges]
 maintenance = { status = "actively-developed" }
