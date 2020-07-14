@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2020-07-14
+### Added
+- New `from_resource` and `from_builder` functions.
+- New dependency to gtk (v0.9.*) as it is now necessary for `from_builder`
+  prototype.
+
 ## [0.1.1] - 2020-07-14
 ### Changed
 - Fix wrong repository link in Cargo.toml.
