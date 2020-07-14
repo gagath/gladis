@@ -8,7 +8,9 @@ A Rust crate to easily import Glade-generated UI files into Rust code.
 
 ## Example
 
-Without Gladis, you would have to manually parse each of the Glade entries like described in the [official Gtk-rs Glade tutorial](https://gtk-rs.org/docs-src/tutorial/glade):
+Without Gladis, you would have to manually parse each of the Glade entries like
+described in the [official Gtk-rs Glade
+tutorial](https://gtk-rs.org/docs-src/tutorial/glade):
 
 ```rust
 fn build_ui(app: &gtk::Application) {
@@ -27,7 +29,8 @@ fn build_ui(app: &gtk::Application) {
 }
 ```
 
-With Gladis, this part can be automated by declaring a struct that describes the elements to extract from the `.glade` file:
+With Gladis, this part can be automated by declaring a struct that describes
+the elements to extract from the `.glade` file:
 
 ```rust
 use gladis::Gladis;
@@ -48,7 +51,9 @@ fn build_ui(app: &gtk::Application) {
 }
 ```
 
-This is possible thanks to the [gladis_proc_macro](https://crates.io/crates/gladis_proc_macro) package (as this module is quite dumb and only declares the Gladis trait).
+This is possible thanks to the
+[gladis_proc_macro](https://crates.io/crates/gladis_proc_macro) package (as
+this module is quite dumb and only declares the Gladis trait).
 
 # License
 
