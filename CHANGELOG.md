@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2020-07-16
 ### Changed
 - Renamed `from_glade_src` to `from_string` to match the gtk::Builder function
   names.
