@@ -6,54 +6,62 @@
 
 A Rust crate to easily import Glade-generated UI files into Rust code.
 
-## Example
+## Usage
 
-Without Gladis, you would have to manually parse each of the Glade entries like
-described in the [official Gtk-rs Glade
-tutorial](https://gtk-rs.org/docs-src/tutorial/glade):
+In order to use Gladis, you have to add the following dependencies into your
+project's `Cargo.toml` file:
 
-```rust
-fn build_ui(app: &gtk::Application) {
-    let builder = gtk::Builder::from_string(include_str!("main.glade"));
-
-    let window: gtk::Window = builder
-        .get_object("window")
-        .expect("could not find window");
-    let my_label: gtk::Label = builder
-        .get_object("my_label")
-        .expect("could not find my_label");
-
-    my_label.set_label("hello from Rust!");
-    window.set_application(Some(app));
-    window.show_all();
-}
+```toml
+[dependencies]
+gladis = "0.2.0"
+gladis_proc_macro = "0.2.0"
 ```
 
-With Gladis, this part can be automated by declaring a struct that describes
-the elements to extract from the `.glade` file:
+After this is done, you can enjoy the Gladis derive!
 
 ```rust
-use gladis::Gladis;
-use gladis_proc_macro::Gladis;
-
 #[derive(Gladis, Clone)]
-struct Ui {
-    window: gtk::Window,
-    my_label: gtk::Label,
+pub struct Window {
+    pub window: gtk::ApplicationWindow,
+    pub label: gtk::Label,
 }
 
-fn build_ui(app: &gtk::Application) {
-    let ui = Ui::from_glade_src(include_str!("main.glade"));
-
-    ui.label.set_label("hello from Rust!");
-    ui.window.set_application(Some(app));
-    ui.window.show_all();
+impl Window {
+    pub fn new() -> Self {
+        Self::from_resource("/dev/null/hello_builder/window.ui")
+    }
 }
 ```
 
 This is possible thanks to the
 [gladis_proc_macro](https://crates.io/crates/gladis_proc_macro) package (as
 this module is quite dumb and only declares the Gladis trait).
+
+Without Gladis, you would have to manually parse each of the Glade entries like
+described in the [official Gtk-rs Glade
+tutorial](https://gtk-rs.org/docs-src/tutorial/glade):
+
+```rust
+pub struct Window {
+    pub window: gtk::ApplicationWindow,
+    pub label: gtk::Label,
+}
+
+impl Window {
+    pub fn new() -> Self {
+        let builder = gtk::Builder::from_resource("/dev/null/hello_builder/window.ui");
+        let window: gtk::ApplicationWindow = builder
+            .get_object("window")
+            .expect("Failed to find the window object");
+
+        let label: gtk::Label = builder
+            .get_object("label")
+            .expect("Failed to find the label object");
+
+        Self { window, label }
+    }
+}
+```
 
 # License
 
