@@ -17,3 +17,6 @@ maintenance = { status = "actively-developed" }
 
 [dependencies]
 gtk = "0.9.*"
+
+[dev-dependencies]
+gladis_proc_macro = "0.2.*"
