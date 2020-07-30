@@ -32,10 +32,6 @@ impl Window {
 }
 ```
 
-This is possible thanks to the
-[gladis_proc_macro](https://crates.io/crates/gladis_proc_macro) package (as
-this module is quite dumb and only declares the Gladis trait).
-
 Without Gladis, you would have to manually parse each of the Glade entries like
 described in the [official Gtk-rs Glade
 tutorial](https://gtk-rs.org/docs-src/tutorial/glade):
