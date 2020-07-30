@@ -1,0 +1,24 @@
+[package]
+name = "gladis_proc_macro"
+version = "0.2.1"
+authors = ["Romain Porte <microjoe@microjoe.org>"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "Easily import Glade-generated UI files into Rust code (proc macro)."
+readme = "README.md"
+keywords = ["gui", "gtk", "gtk-rs", "gnome", "glade"]
+categories = ["gui"]
+repository = "https://github.com/MicroJoe/gladis"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "1.0"
+quote = "1.0"
+gladis = "0.2.*"
+
+[dev-dependencies]
+gtk = "0.9.*"
