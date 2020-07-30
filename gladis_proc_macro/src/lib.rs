@@ -20,17 +20,16 @@ fn impl_gladis(ast: &DeriveInput) -> TokenStream {
 
     let gen = quote! {
         impl gladis::Gladis for #name {
-            fn from_builder(builder: gtk::Builder) -> Self {
-                Self {
+            fn from_builder(builder: gtk::Builder) -> gladis::Result<Self> {
+                Ok(Self {
                     #(
                         #field_name: builder.get_object(stringify!(#field_name))
-                            .expect(concat!("could not find \"",
-                                            stringify!(#field_name),
-                                            "\" of type \"",
-                                            stringify!(#field_type),
-                                            "\" in glade file")),
+                            .ok_or(gladis::GladisError::not_found(
+                                stringify!(#field_name),
+                                stringify!(#field_type),
+                            ))?,
                     )*
-                }
+                })
             }
         }
     };

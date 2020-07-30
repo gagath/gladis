@@ -27,7 +27,7 @@ pub struct Window {
 
 impl Window {
     pub fn new() -> Self {
-        Self::from_resource("/dev/null/hello_builder/window.ui")
+        Self::from_resource("/dev/null/hello_builder/window.ui").unwrap()
     }
 }
 ```

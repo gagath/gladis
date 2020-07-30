@@ -32,11 +32,35 @@
 //!
 //! fn main() {
 //!     gtk::init().unwrap();
-//!     let _ui = Window::from_string(GLADE_SRC);
+//!     let _ui = Window::from_string(GLADE_SRC).unwrap();
 //! }
 //! ```
 
 use gtk;
+
+#[derive(Debug, Clone)]
+pub struct NotFoundError {
+    pub identifier: String,
+    pub typ: String,
+}
+
+#[derive(Debug, Clone)]
+pub enum GladisError {
+    NotFound(NotFoundError),
+}
+
+impl GladisError {
+    pub fn not_found<T>(identifier: T, typ: T) -> Self
+    where
+        T: ToString,
+    {
+        let identifier = identifier.to_string();
+        let typ = typ.to_string();
+        GladisError::NotFound(NotFoundError { identifier, typ })
+    }
+}
+
+pub type Result<T> = std::result::Result<T, GladisError>;
 
 pub trait Gladis {
     //! A trait to load a struct from a builder.
@@ -64,7 +88,7 @@ pub trait Gladis {
     //!
     //! ```
     //! use gtk::prelude::*;
-    //! use gladis::Gladis;
+    //! use gladis::{Gladis, Result, GladisError};
     //!
     //! pub struct Window {
     //!     pub window: gtk::ApplicationWindow,
@@ -72,26 +96,16 @@ pub trait Gladis {
     //! }
     //!
     //! impl Gladis for Window {
-    //!     fn from_builder(builder: gtk::Builder) -> Self {
+    //!     fn from_builder(builder: gtk::Builder) -> Result<Self> {
     //!         let window: gtk::ApplicationWindow = builder
     //!             .get_object("window")
-    //!             .expect("Failed to find the window object");
+    //!             .ok_or(GladisError::not_found("window", "gtk::ApplicationWindow"))?;
     //!
     //!         let label: gtk::Label = builder
     //!             .get_object("label")
-    //!             .expect("Failed to find the label object");
+    //!             .ok_or(GladisError::not_found("label", "gtk::Label"))?;
     //!
-    //!         Self { window, label }
-    //!     }
-    //!
-    //!     fn from_string(src: &str) -> Self {
-    //!         let builder = gtk::Builder::from_string(src);
-    //!         Gladis::from_builder(builder)
-    //!     }
-    //!
-    //!     fn from_resource(resource_path: &str) -> Self {
-    //!         let builder = gtk::Builder::from_resource(resource_path);
-    //!         Gladis::from_builder(builder)
+    //!         Ok(Self { window, label })
     //!     }
     //! }
     //! ```
@@ -101,10 +115,12 @@ pub trait Gladis {
     /// This method should not be called directly but is used as a common
     /// function for the `from_string` and `from_resource` functions to
     /// share the same code.
-    fn from_builder(builder: gtk::Builder) -> Self;
+    fn from_builder(builder: gtk::Builder) -> Result<Self>
+    where
+        Self: std::marker::Sized;
 
     /// Populate struct from a Glade document.
-    fn from_string(src: &str) -> Self
+    fn from_string(src: &str) -> Result<Self>
     where
         Self: std::marker::Sized,
     {
@@ -113,7 +129,7 @@ pub trait Gladis {
     }
 
     /// Populate struct from a Glade document as a resource.
-    fn from_resource(resource_path: &str) -> Self
+    fn from_resource(resource_path: &str) -> Result<Self>
     where
         Self: std::marker::Sized,
     {

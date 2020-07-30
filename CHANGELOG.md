@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed useless mention of the `gladis_proc_macro` crate in README.
 - Fixed missing automatic derive import.
 - Implement trivial functions in the trait directly instead of in the macro.
+- Add proper error handling.
 
 ## [0.3.1] - 2020-07-30
 ### Changed
