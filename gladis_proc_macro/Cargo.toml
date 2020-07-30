@@ -21,3 +21,4 @@ quote = "1.0"
 
 [dev-dependencies]
 gtk = "0.9.*"
+gladis = { version = "0.3.*", path = "../gladis" }

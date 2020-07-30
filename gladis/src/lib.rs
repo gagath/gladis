@@ -3,7 +3,6 @@
 //! ```
 //! use gtk::prelude::*;
 //! use gladis::Gladis;
-//! use gladis_proc_macro::Gladis;
 //!
 //! const GLADE_SRC: &str = r#"
 //! <?xml version="1.0" encoding="UTF-8"?>
@@ -51,7 +50,6 @@ pub trait Gladis {
     //! ```
     //! use gtk::prelude::*;
     //! use gladis::Gladis;
-    //! use gladis_proc_macro::Gladis;
     //!
     //! #[derive(Gladis, Clone)]
     //! pub struct Window {
@@ -106,8 +104,25 @@ pub trait Gladis {
     fn from_builder(builder: gtk::Builder) -> Self;
 
     /// Populate struct from a Glade document.
-    fn from_string(src: &str) -> Self;
+    fn from_string(src: &str) -> Self
+    where
+        Self: std::marker::Sized,
+    {
+        let builder = gtk::Builder::from_string(src);
+        Gladis::from_builder(builder)
+    }
 
     /// Populate struct from a Glade document as a resource.
-    fn from_resource(resource_path: &str) -> Self;
+    fn from_resource(resource_path: &str) -> Self
+    where
+        Self: std::marker::Sized,
+    {
+        let builder = gtk::Builder::from_resource(resource_path);
+        Gladis::from_builder(builder)
+    }
 }
+
+// Re-export #[derive(Gladis)].
+#[cfg(feature = "derive")]
+#[doc(hidden)]
+pub use gladis_proc_macro::Gladis;

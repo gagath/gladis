@@ -32,15 +32,6 @@ fn impl_gladis(ast: &DeriveInput) -> TokenStream {
                     )*
                 }
             }
-            fn from_string(src: &str) -> Self {
-                let builder = gtk::Builder::from_string(src);
-                Gladis::from_builder(builder)
-            }
-
-            fn from_resource(src: &str) -> Self {
-                let builder = gtk::Builder::from_resource(src);
-                Gladis::from_builder(builder)
-            }
         }
     };
     gen.into()
@@ -51,7 +42,6 @@ fn impl_gladis(ast: &DeriveInput) -> TokenStream {
 /// ```
 /// use gtk::prelude::*;
 /// use gladis::Gladis;
-/// use gladis_proc_macro::Gladis;
 ///
 /// #[derive(Gladis, Clone)]
 /// pub struct Window {
