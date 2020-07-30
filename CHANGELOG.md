@@ -5,11 +5,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+
+## [0.4.0] - 2020-07-30
+### Added
+- Proper error handling.
+
 ### Changed
-- Removed useless mention of the `gladis_proc_macro` crate in README.
 - Fixed missing automatic derive import.
 - Implement trivial functions in the trait directly instead of in the macro.
-- Add proper error handling.
+
+### Removed
+- Now useless mention of the `gladis_proc_macro` crate in README.
 
 ## [0.3.1] - 2020-07-30
 ### Changed

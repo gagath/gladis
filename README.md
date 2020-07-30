@@ -13,7 +13,7 @@ project's `Cargo.toml` file:
 
 ```toml
 [dependencies]
-gladis = "0.3.*"
+gladis = "0.4.*"
 ```
 
 After this is done, you can enjoy the Gladis derive!

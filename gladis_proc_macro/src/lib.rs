@@ -36,18 +36,6 @@ fn impl_gladis(ast: &DeriveInput) -> TokenStream {
     gen.into()
 }
 
-/// Automatically implement Gladis trait for a struct
-///
-/// ```
-/// use gtk::prelude::*;
-/// use gladis::Gladis;
-///
-/// #[derive(Gladis, Clone)]
-/// pub struct Window {
-///     pub window: gtk::ApplicationWindow,
-///     pub label: gtk::Label,
-/// }
-/// ```
 #[proc_macro_derive(Gladis)]
 pub fn derive_gladis(input: TokenStream) -> TokenStream {
     let ast = syn::parse(input).unwrap();
