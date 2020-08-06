@@ -44,9 +44,37 @@ pub struct NotFoundError {
     pub typ: String,
 }
 
+impl Display for NotFoundError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "Identified {} of type {} was not found",
+            self.identifier, self.typ
+        )
+    }
+}
+
+impl Error for NotFoundError {}
+
 #[derive(Debug, Clone)]
 pub enum GladisError {
     NotFound(NotFoundError),
+}
+
+impl Display for GladisError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            GladisError::NotFound(e) => write!(f, "Not found error: {}", e),
+        }
+    }
+}
+
+impl Error for GladisError {
+    fn source(&self) -> Option<&(dyn Error + 'static)> {
+        match self {
+            GladisError::NotFound(e) => Some(e),
+        }
+    }
 }
 
 impl GladisError {
@@ -142,3 +170,4 @@ pub trait Gladis {
 #[cfg(feature = "derive")]
 #[doc(hidden)]
 pub use gladis_proc_macro::Gladis;
+use std::{error::Error, fmt::Display};
