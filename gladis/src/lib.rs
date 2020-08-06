@@ -30,13 +30,9 @@
 //!     pub label: gtk::Label,
 //! }
 //!
-//! fn main() {
-//!     gtk::init().unwrap();
-//!     let _ui = Window::from_string(GLADE_SRC).unwrap();
-//! }
+//! gtk::init().unwrap();
+//! let _ui = Window::from_string(GLADE_SRC).unwrap();
 //! ```
-
-use gtk;
 
 #[derive(Debug, Clone)]
 pub struct NotFoundError {
