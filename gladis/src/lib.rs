@@ -34,6 +34,8 @@
 //! let _ui = Window::from_string(GLADE_SRC).unwrap();
 //! ```
 
+use std::{error::Error, fmt::Display};
+
 #[derive(Debug, Clone)]
 pub struct NotFoundError {
     pub identifier: String,
@@ -166,4 +168,3 @@ pub trait Gladis {
 #[cfg(feature = "derive")]
 #[doc(hidden)]
 pub use gladis_proc_macro::Gladis;
-use std::{error::Error, fmt::Display};
