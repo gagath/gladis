@@ -46,7 +46,7 @@ impl Display for NotFoundError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,
-            "Identified {} of type {} was not found",
+            "identifier {} of type {} was not found",
             self.identifier, self.typ
         )
     }
@@ -62,7 +62,7 @@ pub enum GladisError {
 impl Display for GladisError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            GladisError::NotFound(e) => write!(f, "Not found error: {}", e),
+            GladisError::NotFound(e) => write!(f, "not found error: {}", e),
         }
     }
 }
@@ -168,3 +168,26 @@ pub trait Gladis {
 #[cfg(feature = "derive")]
 #[doc(hidden)]
 pub use gladis_proc_macro::Gladis;
+
+#[cfg(test)]
+mod tests {
+    use crate::{GladisError, NotFoundError};
+
+    #[test]
+    fn fmt_not_found_error() {
+        let err = NotFoundError {
+            identifier: "foo".to_string(),
+            typ: "bar".to_string(),
+        };
+        assert_eq!(err.to_string(), "identifier foo of type bar was not found");
+    }
+
+    #[test]
+    fn fmt_gladis_error() {
+        let err = GladisError::NotFound(NotFoundError {
+            identifier: "foo".to_string(),
+            typ: "bar".to_string(),
+        });
+        assert_eq!(err.to_string(), "not found error: identifier foo of type bar was not found");
+    }
+}
