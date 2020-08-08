@@ -30,13 +30,11 @@
 //!     pub label: gtk::Label,
 //! }
 //!
-//! fn main() {
-//!     gtk::init().unwrap();
-//!     let _ui = Window::from_string(GLADE_SRC).unwrap();
-//! }
+//! gtk::init().unwrap();
+//! let _ui = Window::from_string(GLADE_SRC).unwrap();
 //! ```
 
-use gtk;
+use std::{error::Error, fmt::Display};
 
 #[derive(Debug, Clone)]
 pub struct NotFoundError {
@@ -44,9 +42,37 @@ pub struct NotFoundError {
     pub typ: String,
 }
 
+impl Display for NotFoundError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "identifier {} of type {} was not found",
+            self.identifier, self.typ
+        )
+    }
+}
+
+impl Error for NotFoundError {}
+
 #[derive(Debug, Clone)]
 pub enum GladisError {
     NotFound(NotFoundError),
+}
+
+impl Display for GladisError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            GladisError::NotFound(e) => write!(f, "not found error: {}", e),
+        }
+    }
+}
+
+impl Error for GladisError {
+    fn source(&self) -> Option<&(dyn Error + 'static)> {
+        match self {
+            GladisError::NotFound(e) => Some(e),
+        }
+    }
 }
 
 impl GladisError {
@@ -142,3 +168,26 @@ pub trait Gladis {
 #[cfg(feature = "derive")]
 #[doc(hidden)]
 pub use gladis_proc_macro::Gladis;
+
+#[cfg(test)]
+mod tests {
+    use crate::{GladisError, NotFoundError};
+
+    #[test]
+    fn fmt_not_found_error() {
+        let err = NotFoundError {
+            identifier: "foo".to_string(),
+            typ: "bar".to_string(),
+        };
+        assert_eq!(err.to_string(), "identifier foo of type bar was not found");
+    }
+
+    #[test]
+    fn fmt_gladis_error() {
+        let err = GladisError::NotFound(NotFoundError {
+            identifier: "foo".to_string(),
+            typ: "bar".to_string(),
+        });
+        assert_eq!(err.to_string(), "not found error: identifier foo of type bar was not found");
+    }
+}
