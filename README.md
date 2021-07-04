@@ -32,9 +32,7 @@ impl Window {
 }
 ```
 
-Without Gladis, you would have to manually parse each of the Glade entries like
-described in the [official Gtk-rs Glade
-tutorial](https://gtk-rs.org/docs-src/tutorial/glade):
+Without Gladis, you would have to manually parse each of the Glade entries.
 
 ```rust
 pub struct Window {
@@ -46,11 +44,11 @@ impl Window {
     pub fn new() -> Self {
         let builder = gtk::Builder::from_resource("/dev/null/hello_builder/window.ui");
         let window: gtk::ApplicationWindow = builder
-            .get_object("window")
+            .object("window")
             .expect("Failed to find the window object");
 
         let label: gtk::Label = builder
-            .get_object("label")
+            .object("label")
             .expect("Failed to find the label object");
 
         Self { window, label }
