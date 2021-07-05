@@ -1,0 +1,45 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+      - ci
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/gtk-rs/gtk3-rs/gtk3:latest
+    strategy:
+      matrix:
+        rust:
+          - stable
+          - beta
+          - nightly
+          - "1.51.0"
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: ${{ matrix.rust }}
+        override: true
+    - name: Build
+      run: cargo build --verbose
+    # clippy
+    - run: rustup component add clippy
+      if: matrix.rust == 'beta' || matrix.rust == 'stable'
+    - working-directory: ${{ matrix.conf.name }}
+      name: clippy ${{ matrix.conf.name }}
+      run: cargo clippy --all-targets -- -D warnings
+      if: matrix.rust == 'beta' || matrix.rust == 'stable'
+    # tests
+    - name: Run tests
+      run: xvfb-run --auto-servernum cargo test --verbose
+    - uses: bcomnes/cleanup-xvfb@v1
