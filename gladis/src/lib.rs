@@ -124,11 +124,11 @@ pub trait Gladis {
     //! impl Gladis for Window {
     //!     fn from_builder(builder: gtk::Builder) -> Result<Self> {
     //!         let window: gtk::ApplicationWindow = builder
-    //!             .get_object("window")
+    //!             .object("window")
     //!             .ok_or(GladisError::not_found("window", "gtk::ApplicationWindow"))?;
     //!
     //!         let label: gtk::Label = builder
-    //!             .get_object("label")
+    //!             .object("label")
     //!             .ok_or(GladisError::not_found("label", "gtk::Label"))?;
     //!
     //!         Ok(Self { window, label })
@@ -188,6 +188,9 @@ mod tests {
             identifier: "foo".to_string(),
             typ: "bar".to_string(),
         });
-        assert_eq!(err.to_string(), "not found error: identifier foo of type bar was not found");
+        assert_eq!(
+            err.to_string(),
+            "not found error: identifier foo of type bar was not found"
+        );
     }
 }

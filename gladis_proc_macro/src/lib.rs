@@ -23,7 +23,7 @@ fn impl_gladis(ast: &DeriveInput) -> TokenStream {
             fn from_builder(builder: gtk::Builder) -> gladis::Result<Self> {
                 Ok(Self {
                     #(
-                        #field_name: builder.get_object(stringify!(#field_name))
+                        #field_name: builder.object(stringify!(#field_name))
                             .ok_or(gladis::GladisError::not_found(
                                 stringify!(#field_name),
                                 stringify!(#field_type),

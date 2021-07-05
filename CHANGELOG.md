@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Simple example of use.
 
+### Changed
+- Updated both crates to depend on gtk (gtk-rs) 0.14.
+
 ## [0.4.1] - 2020-08-08
 ### Added
 - Implement Display + Error for error types.
