@@ -1,5 +1,6 @@
 # gladis
 
+[![Build](https://github.com/MicroJoe/gladis/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/MicroJoe/gladis/actions/workflows/ci.yml)
 [![Latest version](https://img.shields.io/crates/v/gladis.svg)](https://crates.io/crates/gladis)
 [![Documentation](https://docs.rs/gladis/badge.svg)](https://docs.rs/gladis)
 [![License](https://img.shields.io/crates/l/gladis.svg)](https://crates.io/crates/gladis)
