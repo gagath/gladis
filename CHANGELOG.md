@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 ### Added
 - Simple example of use.
+- Automated build and test based on Github Actions.
 
 ### Changed
 - Updated both crates to depend on gtk (gtk-rs) 0.14.
