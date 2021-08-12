@@ -80,7 +80,7 @@ impl Widget for Win {
         let glade_src = include_str!("window.glade");
         let widgets = Widgets::from_string(glade_src).unwrap();
 
-        widgets.window.show();
+        widgets.window.show_all();
 
         connect!(
             relm,
