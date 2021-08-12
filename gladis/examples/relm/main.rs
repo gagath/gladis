@@ -118,10 +118,7 @@ impl Widget for Win {
             return (Some(Msg::Quit), Inhibit(false))
         );
 
-        Win {
-            model,
-            widgets: widgets,
-        }
+        Win { model, widgets }
     }
 }
 
