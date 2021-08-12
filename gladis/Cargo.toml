@@ -20,6 +20,11 @@ gtk = "0.14.*"
 gladis_proc_macro = { version = "1.0.0", path = "../gladis_proc_macro" }
 gio = "0.14.*"
 
+# Relm example
+relm = "^0.22.0"
+relm-derive = "^0.22.0"
+
+
 [features]
 default = ["derive"]
 derive = ["gladis_proc_macro"]

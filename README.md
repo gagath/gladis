@@ -57,6 +57,12 @@ impl Window {
 }
 ```
 
+## Relm support
+
+This crate is compatible with [Relm](https://github.com/antoyo/relm), a
+popular framework for writing UIs with GTK+. See the `examples/relm` directory,
+and give it a shot!
+
 ## License
 
 Licensed under either of [Apache License, Version 2.0](LICENSE-APACHE) or [MIT
