@@ -21,17 +21,11 @@
  */
 
 use gtk::{
-    prelude::BuilderExtManual,
-    Button,
-    Inhibit,
-    Label,
-    Window,
-    prelude::ButtonExt,
-    prelude::LabelExt,
-    prelude::WidgetExt,
+    prelude::BuilderExtManual, prelude::ButtonExt, prelude::LabelExt, prelude::WidgetExt, Button,
+    Inhibit, Label, Window,
 };
-use relm_derive::Msg;
 use relm::{connect, Relm, Update, Widget, WidgetTest};
+use relm_derive::Msg;
 
 use gladis::Gladis;
 
@@ -69,9 +63,7 @@ impl Update for Win {
     type Msg = Msg;
 
     fn model(_: &Relm<Self>, _: ()) -> Model {
-        Model {
-            counter: 0,
-        }
+        Model { counter: 0 }
     }
 
     fn update(&mut self, event: Msg) {
@@ -82,11 +74,11 @@ impl Update for Win {
                 self.model.counter -= 1;
                 // Manually update the view.
                 label.set_text(&self.model.counter.to_string());
-            },
+            }
             Msg::Increment => {
                 self.model.counter += 1;
                 label.set_text(&self.model.counter.to_string());
-            },
+            }
             Msg::Quit => gtk::main_quit(),
         }
     }
@@ -107,9 +99,24 @@ impl Widget for Win {
 
         widgets.window.show();
 
-        connect!(relm, widgets.plus_button, connect_clicked(_), Msg::Increment);
-        connect!(relm, widgets.minus_button, connect_clicked(_), Msg::Decrement);
-        connect!(relm, widgets.window, connect_delete_event(_, _), return (Some(Msg::Quit), Inhibit(false)));
+        connect!(
+            relm,
+            widgets.plus_button,
+            connect_clicked(_),
+            Msg::Increment
+        );
+        connect!(
+            relm,
+            widgets.minus_button,
+            connect_clicked(_),
+            Msg::Decrement
+        );
+        connect!(
+            relm,
+            widgets.window,
+            connect_delete_event(_, _),
+            return (Some(Msg::Quit), Inhibit(false))
+        );
 
         Win {
             model,
@@ -121,8 +128,7 @@ impl Widget for Win {
 impl WidgetTest for Win {
     type Streams = ();
 
-    fn get_streams(&self) -> Self::Streams {
-    }
+    fn get_streams(&self) -> Self::Streams {}
 
     type Widgets = Widgets;
 
