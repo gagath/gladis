@@ -1,0 +1,5 @@
+consolidate-commits = true
+shared-version = true
+consolidate-pushes = true
+allow-branch = ["master"]
+disable-tag = true

@@ -24,7 +24,6 @@ gio = "0.14.*"
 relm = "^0.22.0"
 relm-derive = "^0.22.0"
 
-
 [features]
 default = ["derive"]
 derive = ["gladis_proc_macro"]
