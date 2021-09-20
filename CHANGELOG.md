@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased] - ReleaseDate
 ### Added
 - New example of use with the Relm crate.
+- Use [cargo-release](https://github.com/crate-ci/cargo-release) for release
+  handling.
 
 ## [1.0.0] - 2021-07-05
 ### Added
