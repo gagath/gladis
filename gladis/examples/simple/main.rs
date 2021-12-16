@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Romain Porte <microjoe@microjoe.org>
+//
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 use gio::prelude::*;
 use gtk::prelude::*;
 

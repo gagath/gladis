@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Romain Porte <microjoe@microjoe.org>
+//
+// SPDX-License-Identifier: Apache-2.0 OR MIT
+
 //! A Rust crate to easily import Glade-generated UI files into Rust code (proc
 //! macros).
 
