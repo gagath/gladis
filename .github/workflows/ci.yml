@@ -47,3 +47,10 @@ jobs:
     - name: Run tests
       run: xvfb-run --auto-servernum cargo test --verbose
     - uses: bcomnes/cleanup-xvfb@v1
+
+  reuse:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: REUSE Compliance Check
+      uses: fsfe/reuse-action@v1
