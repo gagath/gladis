@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2020 Boucher, Antoni <bouanto@zoho.com>
-// SPDX-FileCopyrightText: 2021 Romain Porte <microjoe@microjoe.org>
+// SPDX-FileCopyrightText: 2021 Agathe Porte <microjoe@microjoe.org>
 //
 // SPDX-License-Identifier: Apache-2.0 OR MIT
 
