@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 Agathe Porte <microjoe@microjoe.org>
+
+SPDX-License-Identifier: Apache-2.0 OR MIT
+-->
+
 # Changelog
 All notable changes to this project will be documented in this file.
 

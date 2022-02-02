@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 Agathe Porte <microjoe@microjoe.org>
+
+SPDX-License-Identifier: Apache-2.0 OR MIT
+-->
+
 # gladis
 
 [![Build](https://github.com/MicroJoe/gladis/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/MicroJoe/gladis/actions/workflows/ci.yml)

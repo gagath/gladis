@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+SPDX-FileCopyrightText: 2022 Agathe Porte <microjoe@microjoe.org>
+
+SPDX-License-Identifier: Apache-2.0 OR MIT
+-->
+
 <!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.0"/>
