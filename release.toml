@@ -6,4 +6,19 @@ consolidate-commits = true
 shared-version = true
 consolidate-pushes = true
 allow-branch = ["main"]
-disable-tag = true
+
+pre-release-commit-message = "chore: release {{version}}"
+tag-message = "{{tag_name}}"
+tag-name = "v{{version}}"
+sign-tag = true
+pre-release-replacements = [
+  {file="README.md", search="gladis = .*", replace="gladis = \"{{version}}\""},
+  {file="Cargo.toml", search="^version = \".*\"$", replace="version = \"{{version}}\""},
+  {file="Cargo.toml", min=0, search="^gladis_proc_macro = \\{ version = \".*\", path = \"../gladis_proc_macro\" \\}$", replace="gladis_proc_macro = { version = \"{{version}}\", path = \"../gladis_proc_macro\" }"},
+  {file="Cargo.toml", min=0, search="^gladis_proc_macro = \\{ version = \".*\", optional = true, path = \"../gladis_proc_macro\" \\}$", replace="gladis_proc_macro = { version = \"{{version}}\", optional = true, path = \"../gladis_proc_macro\" }"},
+]
+pre-release-hook = [
+  "sh",
+  "-c",
+  "cd .. && git cliff --tag $NEW_VERSION --output CHANGELOG.md"
+]

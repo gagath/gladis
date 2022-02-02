@@ -7,7 +7,3 @@ members = [
     "gladis",
     "gladis_proc_macro",
 ]
-
-# Only tag and update CHANGELOG once during `gladis` crate upload
-[workspace.metadata.release]
-disable-tag = true
