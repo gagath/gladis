@@ -4,6 +4,7 @@
 [![Latest version](https://img.shields.io/crates/v/gladis.svg)](https://crates.io/crates/gladis)
 [![Documentation](https://docs.rs/gladis/badge.svg)](https://docs.rs/gladis)
 [![License](https://img.shields.io/crates/l/gladis.svg)](https://crates.io/crates/gladis)
+[![REUSE status](https://api.reuse.software/badge/github.com/MicroJoe/gladis)](https://api.reuse.software/info/github.com/MicroJoe/gladis)
 
 A Rust crate to easily import Glade-generated UI files into Rust code.
 
