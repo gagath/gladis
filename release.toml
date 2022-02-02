@@ -5,5 +5,5 @@
 consolidate-commits = true
 shared-version = true
 consolidate-pushes = true
-allow-branch = ["master"]
+allow-branch = ["main"]
 disable-tag = true
