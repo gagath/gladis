@@ -18,15 +18,15 @@ repository = "https://github.com/MicroJoe/gladis"
 
 [dependencies]
 gladis_proc_macro = { version = "1.0.2-alpha.0", optional = true, path = "../gladis_proc_macro" }
-gtk = "0.14"
+gtk = "0.15"
 
 [dev-dependencies]
 gladis_proc_macro = { version = "1.0.2-alpha.0", path = "../gladis_proc_macro" }
-gio = "0.14"
+gio = "0.15"
 
 # Relm example
-relm = "0.22"
-relm-derive = "0.22"
+relm = "0.23"
+relm-derive = "0.23"
 
 [features]
 default = ["derive"]
