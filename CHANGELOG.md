@@ -10,6 +10,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2022-02-17
+
+### Added
+
+- Introduce cliff.toml
+- Add reuse compliance check test
+- Add REUSE badge in README
+
+### Changed
+
+- Make project REUSE-compliant
+- Update author name
+- Reformat changelog
+- Use inplace REUSE comments instead of separate license file
+- Make git-cliff output proper changelog
+- Rework cargo release workflow
+- Bump gtk crates from 0.14 to 0.15
+
+### Fixed
+
+- Use new main branch instead of master
+- Relax gladis crate dependencies
+
 ## [1.0.1] - 2021-09-20
 
 ### Added
