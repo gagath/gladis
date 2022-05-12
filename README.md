@@ -15,9 +15,10 @@ SPDX-License-Identifier: Apache-2.0 OR MIT
 
 Easily import Glade-generated UI files into Rust code.
 
-**This crate is deprecated. Use `#[derive(CompositeTemplate)]` and
-`#[template]` from [gtk3-macros](https://crates.io/crates/gtk3-macros) or
-[gtk4-macros](https://crates.io/crates/gtk4-macros) official GTK crates.**
+**This crate is DEPRECATED.  
+Use [CompositeTemplate](https://gtk-rs.org/gtk4-rs/stable/latest/book/composite_templates.html)
+from [gtk3-macros](https://crates.io/crates/gtk3-macros)
+or [gtk4-macros](https://crates.io/crates/gtk4-macros) official GTK crates.**
 
 ## Usage
 
@@ -26,7 +27,7 @@ project's `Cargo.toml` file:
 
 ```toml
 [dependencies]
-gladis = "2.1.0"
+gladis = "2.0.0"
 ```
 
 After this is done, you can enjoy the Gladis derive!
