@@ -10,6 +10,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2022-05-12
+
+### Changed
+
+- README: shorten description
+- Use main branch instead of master
+- README: use main branch instead of master
+- Update minimum supported Rust version to 1.56.0
+- Mark crate as OBSOLETE
+
 ## [2.0.0] - 2022-02-17
 
 ### Added
@@ -27,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Make git-cliff output proper changelog
 - Rework cargo release workflow
 - Bump gtk crates from 0.14 to 0.15
+- Release 2.0.0
 
 ### Fixed
 
