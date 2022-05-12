@@ -6,6 +6,7 @@ SPDX-License-Identifier: Apache-2.0 OR MIT
 
 # gladis
 
+![Maintenance status is "deprecated"](https://img.shields.io/badge/maintenance-deprecated-red.svg)
 [![Build](https://github.com/MicroJoe/gladis/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MicroJoe/gladis/actions/workflows/ci.yml)
 [![Latest version](https://img.shields.io/crates/v/gladis.svg)](https://crates.io/crates/gladis)
 [![Documentation](https://docs.rs/gladis/badge.svg)](https://docs.rs/gladis)
@@ -13,6 +14,10 @@ SPDX-License-Identifier: Apache-2.0 OR MIT
 [![REUSE status](https://api.reuse.software/badge/github.com/MicroJoe/gladis)](https://api.reuse.software/info/github.com/MicroJoe/gladis)
 
 Easily import Glade-generated UI files into Rust code.
+
+**This crate is deprecated. Use `#[derive(CompositeTemplate)]` and
+`#[template]` from [gtk3-macros](https://crates.io/crates/gtk3-macros) or
+[gtk4-macros](https://crates.io/crates/gtk4-macros) official GTK crates.**
 
 ## Usage
 
