@@ -27,7 +27,7 @@ project's `Cargo.toml` file:
 
 ```toml
 [dependencies]
-gladis = "2.1.1"
+gladis = "2.1.2"
 ```
 
 After this is done, you can enjoy the Gladis derive!
