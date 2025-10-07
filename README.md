@@ -10,7 +10,7 @@ SPDX-License-Identifier: Apache-2.0 OR MIT
 [![Build](https://github.com/MicroJoe/gladis/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MicroJoe/gladis/actions/workflows/ci.yml)
 [![Latest version](https://img.shields.io/crates/v/gladis.svg)](https://crates.io/crates/gladis)
 [![Documentation](https://docs.rs/gladis/badge.svg)](https://docs.rs/gladis)
-[![License](https://img.shields.io/crates/l/gladis.svg)](https://crates.io/crates/gladis)
+[![License](https://img.shields.io/crates/l/gladis.svg)](#License)
 [![REUSE status](https://api.reuse.software/badge/github.com/MicroJoe/gladis)](https://api.reuse.software/info/github.com/MicroJoe/gladis)
 
 Easily import Glade-generated UI files into Rust code.
