@@ -12,7 +12,7 @@ description = "Deprecated. Use gtk-rs's CompositeTemplate derive macro instead."
 readme = "README.md"
 keywords = ["gui", "gtk", "gtk-rs", "gnome", "glade"]
 categories = ["gui"]
-repository = "https://github.com/MicroJoe/gladis"
+repository = "https://github.com/gagath/gladis"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

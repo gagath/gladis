@@ -28,7 +28,7 @@ fn build_ui(app: &gtk::Application) {
 
 fn main() {
     let application = gtk::Application::new(
-        Some("com.github.MicroJoe.gladis.examples.simple"),
+        Some("com.github.gagath.gladis.examples.simple"),
         Default::default(),
     );
 
