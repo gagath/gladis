@@ -18,15 +18,15 @@ repository = "https://github.com/gagath/gladis"
 
 [dependencies]
 gladis_proc_macro = { version = "2.1.2", optional = true, path = "../gladis_proc_macro" }
-gtk = "0.15"
+gtk = { git = "https://github.com/nikescar/gtk3-rs.git", version = "0.19.0" }
 
 [dev-dependencies]
 gladis_proc_macro = { version = "2.1.2", path = "../gladis_proc_macro" }
-gio = "0.15"
+gio = "0.22.6"
 
 # Relm example
-relm = "0.23"
-relm-derive = "0.23"
+relm = { git = "https://github.com/coyoteclan/relm.git", version = "0.24.1" }
+relm-derive = { git = "https://github.com/coyoteclan/relm.git", version = "0.24.0" }
 
 [features]
 default = ["derive"]
