@@ -4,9 +4,10 @@
 // SPDX-License-Identifier: Apache-2.0 OR MIT
 
 use gtk::{
-    prelude::BuilderExtManual, prelude::ButtonExt, prelude::LabelExt, prelude::WidgetExt, Button,
-    Inhibit, Label, Window,
+    prelude::ButtonExt, prelude::LabelExt, prelude::WidgetExt, Button,
+    Label, Window, prelude::BuilderExtManual,
 };
+use gtk::glib::Propagation;
 use relm::{connect, Relm, Update, Widget, WidgetTest};
 use relm_derive::Msg;
 
@@ -98,7 +99,7 @@ impl Widget for Win {
             relm,
             widgets.window,
             connect_delete_event(_, _),
-            return (Some(Msg::Quit), Inhibit(false))
+            return (Some(Msg::Quit), Propagation::Stop)
         );
 
         Win { model, widgets }
